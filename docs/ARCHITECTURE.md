@@ -1,10 +1,10 @@
 # Architecture notes
 
-**Status:** Technology choices are open. This document sets boundaries and safety requirements, not a final stack.
+**Status:** The mobile client is Expo SDK 58. The API, identity provider, and database are still open. See DEC-003 and DEC-004.
 
 ## Logical components
 
-1. **Client app** - onboarding, community discovery, feed, post composition, replies, and user-facing safety controls.
+1. **Client app** - Expo SDK 58 / Expo Router. Onboarding, community list, feed, post composition, and replies. The current build persists this data on the device only. It is a shell for an iPhone install, not the production API boundary.
 2. **Application API** - validates identity, enforces community and content permissions, applies business rules, and returns paginated results.
 3. **Identity provider** - authenticates users. The API must validate provider-issued tokens rather than trusting IDs or roles sent by the client.
 4. **Data store** - persists users, communities, memberships, posts, replies, and reports.
@@ -41,4 +41,4 @@ Add direct-message and media entities only after those features are approved for
 
 ## Decisions still needed
 
-Mobile/web scope, app framework, backend/API hosting, database, identity provider, media storage, moderation tooling, and observability. Record choices and tradeoffs in DECISIONS.md.
+Mobile scope is an iPhone-first Expo app. Still open: web scope, backend/API hosting, database, identity provider, media storage, moderation tooling, and observability. Record choices in DECISIONS.md.

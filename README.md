@@ -1,38 +1,48 @@
 # StudHub
 
-A student-first place to find people studying the same things, ask for help, and share useful learning resources.
+A student-first place to find people studying the same things, ask for help, and keep the reply.
 
-**Status:** Documentation-first rebuild. This repository currently contains product and engineering documentation only. No code has been copied from StudHub-old or StudHub-new.
+**Status:** Expo SDK 58 shell you can install on an iPhone. Accounts, posts, and replies are stored on the phone. There is no backend yet.
 
-## Product hypothesis
+The older apps (`StudHub-old`, `StudHub-new`) were Expo SDK 51 with Clerk, NativeWind 2, and a drawer. This rebuild keeps the same loop (welcome, profile, communities, feed, replies) and leaves direct messages out until moderation rules exist.
 
-Students need a more useful way to connect around a shared course, class, or study topic than a general-purpose social feed provides. StudHub should help them find relevant communities, get answers, and share resources with peers.
+## What you can try
 
-This is a hypothesis to validate with students, not a confirmed research finding.
+1. Sign up with a name, email, and course. Nothing is uploaded.
+2. Open Home. Read the sample posts, join a community, and publish a question.
+3. Open the post and add a reply. Leave the app and come back; it should still be there.
+4. Messages explains why direct messages are not in this build.
 
-## First end-to-end goal
+## Run it
 
-Prove one dependable loop:
+```bash
+npm install
+npx expo start
+```
 
-1. A student creates an account and joins a relevant community.
-2. They discover a useful post or ask a question.
-3. Another student can respond.
-4. Both students can return to the conversation and see the saved result.
+## Install a build on an iPhone
 
-Start with text and links. Add file uploads, direct messaging, and broader social features only after validating the need and defining privacy and moderation requirements.
+Expo Go on a physical iPhone is still on SDK 57 during the SDK 58 transition, so a QR code in Expo Go may be rejected. Use a preview build instead:
 
-## Documentation
+```bash
+npm install
+npx eas-cli@latest login
+npx eas-cli@latest init
+npx eas-cli@latest build --platform ios --profile preview
+```
 
-- Product brief - docs/PRODUCT_BRIEF.md - users, problem, MVP hypothesis, measures, and open questions.
-- Rebuild plan - docs/REBUILD_PLAN.md - staged milestones and exit criteria.
-- Architecture - docs/ARCHITECTURE.md - system boundaries and security principles; technology choices remain open.
-- Decision log - docs/DECISIONS.md - decisions, proposals, and unresolved questions.
-- Contributing - CONTRIBUTING.md - expectations for future changes.
+`eas init` writes an EAS project id into `app.json`. The iOS bundle id is `com.tshepisomlt.studhub`, which is new, so this build installs beside the old StudyHub app. An internal iOS build needs an Apple Developer account and the phone registered with `npx eas-cli@latest device:create`.
 
-## Not decided yet
+## Docs
 
-The first student community, school or course verification, final MVP scope, mobile/web priorities, technology stack, and backend provider all need an explicit decision. See the product brief and decision log.
+- Product brief: [docs/PRODUCT_BRIEF.md](docs/PRODUCT_BRIEF.md)
+- Rebuild plan: [docs/REBUILD_PLAN.md](docs/REBUILD_PLAN.md)
+- Architecture: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+- Decisions: [docs/DECISIONS.md](docs/DECISIONS.md)
 
-## Development
+## Checks
 
-There is no runnable application in this repository yet. Setup and validation commands will be added after the initial product and architecture decisions are made.
+```bash
+npm test
+npm run typecheck
+```

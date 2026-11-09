@@ -1,6 +1,6 @@
 # StudHub rebuild plan
 
-This plan is a proposed sequence, not a commitment to a technology stack or launch date. Each phase should end with evidence that the next phase is worth doing.
+This plan is a proposed sequence. On 2026-11-09 the owner asked for an installable iPhone shell before Phase 0 interviews were written up. That shell is the Expo app in this repo (DEC-003, DEC-004). It does not close Phase 0 or Phase 2: there is still no server, no real accounts, and no pilot.
 
 ## Phase 0 - Validate the problem
 

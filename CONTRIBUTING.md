@@ -1,6 +1,8 @@
 # Contributing to StudHub
 
-Thanks for helping build a useful and safe student collaboration product. This repository is documentation-only for now; implementation conventions and exact commands will be added when the stack is selected.
+Thanks for helping build a useful and safe student collaboration product.
+
+The app is an Expo SDK 58 client. `npm test` covers the local post/reply rules. `npm run typecheck` runs TypeScript. An iPhone install uses the EAS preview profile in the README. There is no server yet, so do not add a client-trusted user id as if it were authentication.
 
 ## Before opening a change
 
